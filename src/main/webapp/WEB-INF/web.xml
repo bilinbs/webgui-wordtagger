@@ -4,4 +4,18 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>TagText</servlet-name>
+  	<display-name>TagText</display-name>
+  	<description>tag the text</description>
+  	<servlet-class>com.wordtagger.TaggerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TagText</servlet-name>
+  	<url-pattern>/tag</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TagText</servlet-name>
+  	<url-pattern>/webgui/tag</url-pattern>
+  </servlet-mapping>
 </web-app>
