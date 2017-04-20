@@ -22,23 +22,16 @@
 <section id="contact">
 			<div class="section-content">
 				<h1 class="section-header"><span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Hybrid Parts of Speech Tagger</span></h1>
-				<h3>Enter your malayalam text (in unicode) below</h3>
+				<h3>Results of tagging</h3>
 			</div>
 			<div class="contact-section">
 			<div class="container">
-				<form action="/webgui/tag" method="post">
 			  		<div class="col-md-6">
 			  			<div class="form-group">
-			  				<label for ="inputText"> Text to be tagged</label>
-			  			 	<textarea  class="form-control" id="inputText" name="inputText" placeholder="Enter the text to be tagged"></textarea>
+			  				<label for ="inputText"> Tagged Output</label>
+			  			 	<textarea   class="form-control" style="cursor:copy" id="inputText" name="inputText"  readonly>${output }</textarea>
 			  			</div>
-			  			<div>
-
-			  				<button type="submit" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> tag the Text</button>
-			  			</div>
-			  			
 					</div>
-				</form>
 			</div>
 		</section>
 </body>

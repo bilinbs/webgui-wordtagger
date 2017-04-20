@@ -17,7 +17,6 @@ public class TaggerServlet extends HttpServlet {
      */
     public TaggerServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -31,9 +30,16 @@ public class TaggerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String input = request.getParameter("inputText");
-		response.getWriter().println(input);
+		String output = tagText(input);
+		request.setAttribute("output", output);
+		System.out.println(output);
+		request.getRequestDispatcher("/WEB-INF/tagOutput.jsp").forward(request, response);
+	}
+
+	private String tagText(String input) {
+		
+		return input.toUpperCase() + "::" + input.toLowerCase() ;
 	}
 
 }
