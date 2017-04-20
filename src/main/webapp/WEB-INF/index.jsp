@@ -32,7 +32,7 @@
 			  		<div class="col-md-6">
 			  			<div class="form-group">
 			  				<label for ="inputText"> Text to be tagged</label>
-			  			 	<textarea  class="form-control" id="inputText" placeholder="Enter the text to be tagged"></textarea>
+			  			 	<textarea  class="form-control" id="inputText" name="inputText" placeholder="Enter the text to be tagged"></textarea>
 			  			</div>
 			  			<div>
 
