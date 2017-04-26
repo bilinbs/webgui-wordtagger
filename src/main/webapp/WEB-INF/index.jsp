@@ -37,6 +37,17 @@
 					</div>
 				</form>
 			</div>
+            <div class="contact-section">
+            <div class=" container-fluid">
+            <form action="/webgui/tag" method="post" enctype="multipart/form-data">
+            <div class="col-md-6">
+            <label for="fileUpload" class="text-padding">Or alternatively upload a file</label>
+            <input class="button-inline btn btn-default" type="file" name="uploadFile" id="uploadFile" accept="text/*"/>
+            <button type="submit" class="btn btn-default submit float-left button-inline"><i class="fa fa-paper-plane" aria-hidden="true"></i> upload and tag</button>
+            </div>
+            </form>
+            </div>
+            </div>
 		</section>
 		
 		<%@include file="footer.jsp" %>

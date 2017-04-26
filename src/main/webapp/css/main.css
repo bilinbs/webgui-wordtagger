@@ -58,3 +58,11 @@ textarea.form-control {
 
 }
 
+.button-inline{
+ display: inline-block !important;
+ padding-right: 15%;
+}
+
+.text-padding{
+ padding-right:2%;
+}
