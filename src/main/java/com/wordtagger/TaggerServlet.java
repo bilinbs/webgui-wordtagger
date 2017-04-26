@@ -2,6 +2,12 @@ package com.wordtagger;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.FileAttribute;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -65,16 +71,37 @@ public class TaggerServlet extends HttpServlet {
 
         }
         input = new String(input.getBytes("iso-8859-1"), "utf-8");
-        String output = tagText(input);
+        String sessionId = request.getSession().getId();
+        String output = tagText(input,sessionId);
+        
+        
         request.setAttribute("output", output);
         System.out.println(output);
         request.getRequestDispatcher("/WEB-INF/tagOutput.jsp").forward(request,
                 response);
     }
 
-	private String tagText(String input) {
-		
-		return input.toUpperCase() + "::" + input.toLowerCase() ;
+	private String tagText(String input, String sessionId) {
+	    Path path;
+	    String opFileName = "."+ File.separator + "output" + sessionId + ".txt";
+	    StringBuffer output = new StringBuffer();
+        try {
+            path = Files.createTempFile(sessionId, ".txt");
+            System.out.println(path.toString());
+            Files.write(path, input.getBytes("utf-8"), StandardOpenOption.CREATE);
+            Runtime.getRuntime().exec("java FileChanges  " + path.toString() + " " + opFileName);
+            System.out.println(new File(".").getAbsolutePath());
+            List<String> lines = Files.readAllLines(Paths.get(opFileName), Charset.forName("utf-8"));
+            for(String line : lines){
+                output.append(line).append("\n");
+            }
+            Files.deleteIfExists(Paths.get(opFileName));
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+		return output.append(input).toString() ;
 	}
 
 }
