@@ -1,8 +1,8 @@
 /*Contact sectiom*/
 .content-header{
-  font-family: 'Oleo Script', cursive;
-  color:#fcc500;
-  font-size: 45px;
+  color:#124590;
+  font-size: 36px;
+  display: inline;
 }
 
 .section-content{
@@ -17,9 +17,9 @@
   width: 100vw;
   height: 550px;
   background: #3a6186; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color : #fff;    
+  background: -webkit-linear-gradient(to left, #eeffff, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #eeffff , #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color : #333333;    
 }
 .contact-section{
   padding-top: 40px;
@@ -54,7 +54,7 @@ textarea.form-control {
   float: right;
   width: 150px;
   background-color: transparent;
-  color: #fff;
+  color: #999966;
 
 }
 

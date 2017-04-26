@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home - Hybrid Parts of Speech Tagger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Results - മലയാളം ശബ്ദഭേദങ്ങൾ </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/main.css'>
@@ -20,10 +20,7 @@
    	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   
 <section id="contact">
-			<div class="section-content">
-				<h1 class="section-header"><span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Hybrid Parts of Speech Tagger</span></h1>
-				<h3>Results of tagging</h3>
-			</div>
+			<%@include file="nav-header.jsp" %>
 			<div class="contact-section">
 			<div class="container">
 			  		<div class="col-md-6">
@@ -34,4 +31,5 @@
 					</div>
 			</div>
 		</section>
+		<%@include file="footer.jsp" %>
 </body>

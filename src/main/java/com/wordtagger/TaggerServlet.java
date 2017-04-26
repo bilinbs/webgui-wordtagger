@@ -30,7 +30,7 @@ public class TaggerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String input = request.getParameter("inputText");
+		String input = new String(request.getParameter("inputText").getBytes("iso-8859-1"), "utf-8");
 		String output = tagText(input);
 		request.setAttribute("output", output);
 		System.out.println(output);
