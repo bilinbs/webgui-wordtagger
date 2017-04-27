@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.nio.file.attribute.FileAttribute;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -24,7 +23,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  */
 public class TaggerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static final String UPLOAD_DIRECTORY = "";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -54,7 +52,7 @@ public class TaggerServlet extends HttpServlet {
 
                 for (FileItem item : multiparts) {
                     if (!item.isFormField()) {
-                        String name = new File(item.getName()).getName();
+                        //String name = new File(item.getName()).getName();
                         //item.write(new File(
                                 //UPLOAD_DIRECTORY + File.separator + name));
                         input = item.getString();
@@ -82,24 +80,29 @@ public class TaggerServlet extends HttpServlet {
     }
 
 	private String tagText(String input, String sessionId) {
-	    Path path;
-	    String opFileName = "."+ File.separator + "output" + sessionId + ".txt";
+	    Path ipPath, opPath;
+	    String ipFilename = "input" + sessionId ;
+	    String opFileName = "output" + sessionId ;
 	    StringBuffer output = new StringBuffer();
         try {
-            path = Files.createTempFile(sessionId, ".txt");
-            System.out.println(path.toString());
-            Files.write(path, input.getBytes("utf-8"), StandardOpenOption.CREATE);
-            Runtime.getRuntime().exec("java FileChanges  " + path.toString() + " " + opFileName);
+            ipPath = Files.createTempFile(ipFilename, ".txt");
+            opPath = Files.createTempFile(opFileName, ".txt");
             System.out.println(new File(".").getAbsolutePath());
-            List<String> lines = Files.readAllLines(Paths.get(opFileName), Charset.forName("utf-8"));
+            Files.write(ipPath, input.getBytes("utf-8"), StandardOpenOption.CREATE);
+            Process proc = Runtime.getRuntime().exec("java FileChanges  " + ipPath.toString() + " " + opPath.toString());
+            if(proc.waitFor()!=0){
+            	return "Error while processing file";
+            }
+            List<String> lines = Files.readAllLines(opPath, Charset.forName("utf-8"));
             for(String line : lines){
                 output.append(line).append("\n");
             }
             Files.deleteIfExists(Paths.get(opFileName));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        } catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         
 		return output.append(input).toString() ;
 	}
