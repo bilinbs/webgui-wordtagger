@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 <link rel='stylesheet' href='css/main.css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <div class="section-content">
 				<img alt="CUSAT logo" src="images/cusat.jpg" class="img-responsive pull-left" style="height: 100px;">
@@ -22,9 +23,9 @@
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departments <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
+                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Downloads</a>
                                 </li>
-                                <li><a href="#">Add New</a></li>
+                                <li><a href="#"> Insert Text Here</a></li>
                             </ul>
                         </li>
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
