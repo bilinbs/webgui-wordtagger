@@ -35,7 +35,7 @@ public class TaggerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
 	}
 
 	/**
@@ -74,8 +74,7 @@ public class TaggerServlet extends HttpServlet {
         
         
         request.setAttribute("output", output);
-        System.out.println(output);
-        request.getRequestDispatcher("/WEB-INF/tagOutput.jsp").forward(request,
+        request.getRequestDispatcher("/WEB-INF/jsp/tagOutput.jsp").forward(request,
                 response);
     }
 
@@ -104,7 +103,7 @@ public class TaggerServlet extends HttpServlet {
 			e.printStackTrace();
 		}
         
-		return output.append(input).toString() ;
+		return output.toString() ;
 	}
 
 }

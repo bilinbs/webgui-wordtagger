@@ -8,6 +8,13 @@
   	<servlet-name>TagText</servlet-name>
   	<servlet-class>com.wordtagger.TaggerServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>AboutServlet</display-name>
+  	<servlet-name>AboutServlet</servlet-name>
+  	<servlet-class>com.wordtagger.AboutServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>TagText</servlet-name>
   	<url-pattern>/tag</url-pattern>
@@ -23,6 +30,14 @@
   <servlet-mapping>
   	<servlet-name>TagText</servlet-name>
   	<url-pattern></url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AboutServlet</servlet-name>
+  	<url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AboutServlet</servlet-name>
+  	<url-pattern>/contactus</url-pattern>
   </servlet-mapping>
 <welcome-file-list>
 <welcome-file>/webgui/index</welcome-file>
